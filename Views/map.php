@@ -4,13 +4,13 @@
   class map 
   {
     public static function index($geoJson){
-     ?>
-      <div id='map' style='height: 500px'></div>
+    ?>
+      <div id='map' style='height: 600px'></div>
 
       <script>
       function initMap(){
         var centerOfUkraine = {lat: 49.214015, lng: 31.277871};
-         var map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 6,
           center: centerOfUkraine
         });
@@ -18,7 +18,6 @@
         
         map.data.addGeoJson(geoJSOBJ);
       }
-
 
       </script>
       <script async defer
