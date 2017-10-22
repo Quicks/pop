@@ -1,6 +1,6 @@
 <?php
   namespace Parsers;
-  require_once 'parser.php'
+  require_once 'parser.php';
 
   class Csv extends Parser
   {

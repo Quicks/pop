@@ -3,8 +3,10 @@
   namespace Models;
 
   include_once 'Interfaces/iJsonPresentable.php';
+  include_once 'Interfaces/iGeoJson.php';
 
   use \Interfaces\iJsonPresentable as iJsonPresentable;
+  use \Interfaces\iGeoJson as iGeoJson;
 
   class Person implements iJsonPresentable
   {

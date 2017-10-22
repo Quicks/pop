@@ -5,11 +5,13 @@
   include './Formats/json.php';
   include './Formats/xml.php';
   include './Formats/map.php';
+  include './Formats/geoJson.php';
 
   use \Formats\Html as Html;
   use \Formats\Json as Json;
   use \Formats\Xml as Xml;
   use \Formats\Map as Map;
+  use \Formats\GeoJson as GeoJson;
 
   class Format
   {
@@ -30,6 +32,9 @@
         case 'map':
           return new Map();
           break;
+          case 'geoJson':
+              return new GeoJson();
+              break;
         default:
           return new Html();
       }
