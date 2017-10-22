@@ -4,6 +4,6 @@
   include("Handlers/request.php");
   use Handlers\Request as Request;
   $media = isset($_GET['media']) ? $_GET['media'] : 'html';
-  $a = new Handlers\Request($media);
+  $a = new Request($media);
   $a->call();
 ?>

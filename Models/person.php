@@ -1,7 +1,10 @@
 <?php
 
   namespace Models;
-  class Person
+  include_once "Interfaces/iJsonPrentable.php";
+  use Interfaces\iJsonPrentable as iJsonPrentable;
+
+  class Person implements iJsonPrentable
   {
     private $id;
     private $name;
