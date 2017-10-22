@@ -21,9 +21,6 @@
 
     public function make(){
       switch ($this->type) {
-        case 'html':
-          return new Html();
-          break;
         case 'json':
           return new Json();
           break;
@@ -38,17 +35,3 @@
       }
     }
   }
-  // Есть у нас список людей вот такого формата
-  // create table MOCK_DATA ( id INT, name VARCHAR(50), surname
-  // VARCHAR(50), latitude VARCHAR(50), longtitude VARCHAR(50), shirt
-  // VARCHAR(50), is_paid VARCHAR(50), movie VARCHAR(50)
-  // );
-  //
-  // хотим показывать его в таких вариантах
-  // - просто таблица host/?media=html
-  // - json host/?media=json
-  // - xml (host/?media=xml)
-  // - html с картой (host/ либо host/?media=map)
-  //
-  // Filters
-  // - movie

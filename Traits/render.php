@@ -6,6 +6,6 @@
   {
     function render()
     {
-      \Response::printRes($this);
+      $this->formatedData();
     }
   }
