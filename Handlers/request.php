@@ -17,17 +17,3 @@
       $model->render();
     }
   }
-  // people.php
-  // <?php
-  // namespace People;
-  //
-  // class People {}
-  //
-  //
-  // // managers.php
-  // <?php
-  // namespace Managers;
-  //
-  // require_once __DIR__.'/people.php';
-  //
-  // class People extends \People\People {}

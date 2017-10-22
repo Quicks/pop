@@ -1,10 +1,12 @@
 <?php
 
   namespace Models;
+
   include_once "Interfaces/iJsonPrentable.php";
   use Interfaces\iJsonPrentable as iJsonPrentable;
 
   class Person implements iJsonPrentable
+
   {
     private $id;
     private $name;
@@ -30,7 +32,7 @@
     public function fullName(){
       return $this->name.' '.$this->surname;
     }
-    
+
     public function coordinates(){
       return ['lat' => $this->latitude, 'lng' => $this->longtitude];
     }

@@ -4,7 +4,7 @@
   class Response
   {
     public static function printRes(iRender $model){
-      echo $model->formatedData();
+      // echo $model->formatedData();
     }
   }
 
