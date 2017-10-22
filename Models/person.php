@@ -44,5 +44,16 @@
         'coordinates' => $this->coordinates()
       ];
     }
-
+    public function asGeoJson(){
+        return [
+            "type"=> "Feature",
+            "geometry"=> [
+                "type"=> "Point",
+              "coordinates"=> [floatval($this->longtitude), floatval($this->latitude) ]
+            ],
+            "properties"=> [
+                "name"=> $this->fullName()
+            ]
+          ];
+    }
   }
