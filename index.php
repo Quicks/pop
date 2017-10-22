@@ -15,9 +15,7 @@
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <div id='map' style='height: 500px'>
 
-    </div>
     <script>
 
     function GeoJsonFactory(){
@@ -54,13 +52,11 @@
       });
 
       $.ajax({
-        url: '/pop/?media=json',
+        url: '/dev/pop/?media=geoJson',
         success: function(response){
           var users = JSON.parse(response);
-          var geoFactory = new GeoJsonFactory();
-          var usersAsGeoJson = geoFactory.make(users);
-          console.log(usersAsGeoJson);
-          map.data.addGeoJson(usersAsGeoJson);
+
+          map.data.addGeoJson(users);
         }
       })
     }

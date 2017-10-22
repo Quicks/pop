@@ -9,7 +9,8 @@
     }
 
     public function formatedData(){
-      echo 'map';
+      echo '<div id=\'map\' style=\'height: 500px\'>';
+       echo '</div>';
     }
   }
 
