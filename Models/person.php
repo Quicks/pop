@@ -3,10 +3,12 @@
   namespace Models;
 
   include_once 'Interfaces/iJsonPresentable.php';
+  include_once 'Interfaces/IGeoJson.php';
 
   use \Interfaces\iJsonPresentable as iJsonPresentable;
+  use \Interfaces\iGeoJson as IGeoJson;
 
-  class Person implements iJsonPresentable
+  class Person implements iJsonPresentable, IGeoJson
   {
     private $id;
     private $name;
@@ -37,6 +39,15 @@
       return ['lat' => $this->latitude, 'lng' => $this->longtitude];
     }
 
+    public function getLatitude() 
+    {
+      return (float) $this->latitude;  
+    }
+    public function getLongtitude()
+    {
+      return (float) $this->longtitude;
+    }
+    
     public function asJson(){
       return [
         'id' => $this->id,
@@ -45,4 +56,17 @@
       ];
     }
 
+    public function asGeoJson()
+    {
+      return [
+          "type" => "Feature",
+          "geometry" => [
+              "type" => "Point",
+              "coordinates" => [ "lat" => $this->latitude , "lng" => $this->longtitude]
+          ],
+          "properties" => [
+              "name"=> $this->name
+          ]
+      ];
+    }
   }
