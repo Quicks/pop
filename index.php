@@ -19,33 +19,6 @@
 
     </div>
     <script>
-
-    function GeoJsonFactory(){
-      var geoScelleton = makeGeoSceleton();
-      this.make = function(users){
-        geoScelleton.features = users.map(function(item){
-          return {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [parseFloat(item.coordinates.lng), parseFloat(item.coordinates.lat) ]
-            },
-            "properties": {
-              "name": item.fullname
-            }
-          }
-        })
-        return geoScelleton;
-      }
-
-      function makeGeoSceleton(){
-        return {
-          type: 'FeatureCollection',
-          features: []
-        }
-      }
-    }
-
     function initMap(){
       var centerOfUkraine = {lat: 49.214015, lng: 31.277871};
        var map = new google.maps.Map(document.getElementById('map'), {
@@ -54,13 +27,10 @@
       });
 
       $.ajax({
-        url: '/pop/?media=json',
+        url: '/pop/?media=geoJson',
         success: function(response){
-          var users = JSON.parse(response);
-          var geoFactory = new GeoJsonFactory();
-          var usersAsGeoJson = geoFactory.make(users);
-          console.log(usersAsGeoJson);
-          map.data.addGeoJson(usersAsGeoJson);
+          var usersAsGeoJson = JSON.parse(response);
+          map.data.addGeoJson({type: 'FeatureCollection', features: usersAsGeoJson});
         }
       })
     }
